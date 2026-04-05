@@ -1,0 +1,24 @@
+{
+  "lastChecks": {
+    "study_plan_review": null,
+    "memory_update": null,
+    "skill_practice": null,
+    "cli_gui_mastery_check": null
+  },
+  "rules": [
+    "❌ 不懂装懂、臆想猜测 → ❌禁止",
+    "✅ '我不确定'是 OK 的 → ✅允许求助郭总",
+    "🛑 5次尝试失败 → ⚠️立刻停下来，等帮助！",
+    "✅ 物理操作必须截图验证（不是脑补成功）"
+  ],
+  "current_phase": {
+    "name": "Phase 0: CLI Mastery (Week 1)",
+    "start_date": "2026-04-06",
+    "end_date": "2026-04-13",
+    "focus_tasks": [
+      "exec命令执行与错误恢复",
+      "文件读写操作验证",
+      "git workflow练习"
+    ]
+  }
+}

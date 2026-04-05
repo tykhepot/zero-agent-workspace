@@ -1,0 +1,13 @@
+{
+  "3": {
+    "_class_name": "WanVideoSampler",
+    "sampler_settings": {"denoise": 1.0},
+    "seed": 42,
+    "steps": 50,
+    "guidance_scale": 7.5
+  },
+  "6": {
+    "_class_name": "LoadWanVideoModel",
+    "model_path": "/Users/ling/comfyui_install/models/video/Wan2___2-T2V-A14B"
+  }
+}

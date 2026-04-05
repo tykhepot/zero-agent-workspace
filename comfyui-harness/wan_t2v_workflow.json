@@ -1,0 +1,16 @@
+{
+    "3": {
+        "class_type": "WanVideoSampler", 
+        "_meta": {"title": "Wan Video Sampler"},
+        "sampler_settings": {
+            "denoise": 1.0,
+            "guidance_scale": 7.5,
+            "steps": 20
+        },
+        "seed": 42,
+        "width": 832,
+        "height": 480, 
+        "frames": 61,
+        "prompt_text": "A beautiful sunset over the ocean with waves crashing on the shore"
+    }
+}

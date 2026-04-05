@@ -1,0 +1,13 @@
+{
+    "3": {
+        "class_type": "WanImageToVideo", 
+        "_meta": {"title": "Wan 2.1 T2V (Local)"},
+        "positive": {},
+        "negative": {},
+        "vae": {},
+        "width": 832,
+        "height": 480,
+        "length": 61, 
+        "batch_size": 1
+    }
+}

@@ -1,0 +1,23 @@
+{
+  "1": {
+    "_class_name": "CLIPTextEncode",
+    "text": "A beautiful sunset over mountains, anime style, vibrant colors"
+  },
+  "2": {
+    "_class_name": "EmptyLatentImage",
+    "width": 576,
+    "height": 1024,
+    "batch_size": 1
+  },
+  "3": {
+    "_class_name": "WanVideoSampler",
+    "sampler_settings": {"denoise": 1.0},
+    "seed": 42,
+    "steps": 50,
+    "guidance_scale": 7.5
+  },
+  "6": {
+    "_class_name": "LoadWanVideoModel",
+    "model_path": "/Users/ling/comfyui_install/models/video/Wan2___2-T2V-A14B"
+  }
+}

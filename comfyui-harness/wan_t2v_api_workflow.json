@@ -1,0 +1,19 @@
+{
+    "1": {
+        "class_type": "Wan2TextToVideoApi", 
+        "_meta": {"title": "Wan 2.7 Text to Video"},
+        "model": {
+            "key": "wan2.7-t2v", 
+            "inputs": {
+                "prompt": "A beautiful sunset over the ocean with waves crashing on the shore, cinematic lighting, high quality video",
+                "negative_prompt": "",
+                "resolution": "720P",
+                "ratio": "16:9", 
+                "duration": 5
+            }
+        },
+        "seed": 42,
+        "prompt_extend": true,
+        "watermark": false
+    }
+}

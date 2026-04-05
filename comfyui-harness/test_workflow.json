@@ -1,0 +1,6 @@
+{
+  "3": {
+    "inputs": {"seed": 12345, "steps": 20},
+    "_class_name": "KSampler"
+  }
+}

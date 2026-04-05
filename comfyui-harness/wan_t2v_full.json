@@ -1,0 +1,17 @@
+{
+    "1": {
+        "class_type": "WanVideoT5Encoder", 
+        "_meta": {"title": "Load T5 Encoder"},
+        "t5_encoder_path": "/Users/ling/comfyui_install/models/video/models_t5_umt5-xxl-enc-bf16.pth"
+    },
+    "2": {
+        "class_type": "WanVideoVAELoader", 
+        "_meta": {"title": "Load VAE"},
+        "vae_path": "/Users/ling/comfyui_install/models/video/Wan2.1_VAE.pth"
+    },
+    "3": {
+        "class_type": "WanVideoModelLoader",
+        "_meta": {"title": "Load Wan Model"}, 
+        "model_path": "/Volumes/Samsung_2T/models/Wan2___2-T2V-A14B"
+    }
+}

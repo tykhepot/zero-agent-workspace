@@ -1,0 +1,44 @@
+{
+  "id": "wan-t2v-workflow",
+  "revision": 0,
+  "last_node_id": 117,
+  "last_link_id": 203,
+  "nodes": [
+    {
+      "id": 115,
+      "type": "WanVideoSampler",
+      "pos": [473.4, 293.5],
+      "size": [400, 395],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [{"label": "prompt", "name": "text", "type": "STRING", "widget": {"name": "text"}, "link": null}],
+      "outputs": [{"name": "VIDEO", "type": "VIDEO", "links": [197]}],
+      "properties": {
+        "proxyWidgets": [["89", "text"], ["74", "length"], ["74", "width"], ["74", "height"], ["81", "noise_seed"]],
+        "cnr_id": "comfy-core",
+        "ver": "0.11.0"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 116,
+      "type": "SaveVideo",
+      "pos": [1008.5, 285],
+      "size": [270, 106],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [{"name": "video", "type": "VIDEO", "link": 197}],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": ["video/ComfyUI", "auto", "auto"]
+    }
+  ],
+  "links": [[197, 115, 0, 116, 0, "VIDEO"]],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {"scale": 0.8, "offset": [253, -47]}
+  }
+}

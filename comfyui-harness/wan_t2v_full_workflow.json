@@ -1,0 +1,73 @@
+{
+  "id": "wan-t2v-workflow",
+  "revision": 0,
+  "last_node_id": 117,
+  "last_link_id": 203,
+  "nodes": [
+    {
+      "id": 115,
+      "type": "2a07e966-2e86-45a9-a080-8618fac3d17d",
+      "pos": [473.4, 293.5],
+      "size": [400, 395],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [{"label": "prompt", "name": "text", "type": "STRING", "widget": {"name": "text"}, "link": null}],
+      "outputs": [{"name": "VIDEO", "type": "VIDEO", "links": [197]}],
+      "properties": {
+        "proxyWidgets": [["89", "text"], ["74", "length"], ["74", "width"], ["74", "height"], ["81", "noise_seed"]],
+        "cnr_id": "comfy-core",
+        "ver": "0.11.0"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 116,
+      "type": "SaveVideo",
+      "pos": [1008.5, 285],
+      "size": [270, 106],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [{"name": "video", "type": "VIDEO", "link": 197}],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": ["video/ComfyUI", "auto", "auto"]
+    }
+  ],
+  "links": [[197, 115, 0, 116, 0, "VIDEO"]],
+  "groups": [],
+  "definitions": {
+    "subgraphs": [
+      {
+        "id": "2a07e966-2e86-45a9-a080-8618fac3d17d",
+        "version": 1,
+        "state": {"lastGroupId": 15, "lastNodeId": 117, "lastLinkId": 203},
+        "revision": 0,
+        "config": {},
+        "name": "Text to Video (Wan 2.2)",
+        "inputNode": {
+          "id": -10,
+          "bounding": [-99.67, 621.33, 120, 120]
+        },
+        "outputNode": {
+          "id": -20,
+          "bounding": [1681.99, 500.21, 120, 60]
+        },
+        "inputs": [
+          {"id": "3a15ef44-456f-4a3a-ade7-7a0840166830", "name": "text", "type": "STRING", "linkIds": [189], "label": "prompt"},
+          {"id": "ec76f1bf-b130-4dc9-a50c-0b10002725d6", "name": "length", "type": "INT", "linkIds": [190]},
+          {"id": "1abb6b00-a8b4-4e72-9d87-53f1fc5d281e", "name": "width", "type": "INT", "linkIds": [191]},
+          {"id": "0af36ab5-ee95-4ce5-9ad9-26436319a0d2", "name": "height", "type": "INT", "linkIds": [192]}
+        ],
+        "outputs": [{"id": "6bdfda51-5568-48bf-8985-dbad1e11b3d8", "name": "VIDEO", "type": "VIDEO", "linkIds": [196]}],
+        "widgets": [],
+        "nodes": []
+      }
+    ]
+  },
+  "config": {},
+  "extra": {
+    "ds": {"scale": 0.8, "offset": [253, -47]}
+  }
+}
