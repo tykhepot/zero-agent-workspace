@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Form for Day 6 Practice</title>
+</head>
+<body>
+    <h1>Day 6 Test Form - Complex Form Filling Practice</h1>
+    
+    <form id="testForm" action="#" method="post">
+        <!-- Email Field -->
+        <div style="margin: 20px 0;">
+            <label for="emailInput">Email:</label><br>
+            <input type="email" id="emailInput" name="email" placeholder="Enter your email"><br><br>
+        </div>
+
+        <!-- Country Dropdown -->
+        <div style="margin: 20px 0;">
+            <label for="countrySelect">Country:</label><br>
+            <select id="countrySelect" name="country">
+                <option value="">-- Select a country --</option>
+                <option value="china">China (中国)</option>
+                <option value="usa">United States</option>
+                <option value="japan">Japan (日本)</option>
+            </select><br><br>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" id="submitButton">Submit Form</button>
+    </form>
+
+    <script>
+        document.getElementById('testForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Form submitted!\nEmail: ' + document.getElementById('emailInput').value);
+        });
+    </script>
+</body>
+</html>

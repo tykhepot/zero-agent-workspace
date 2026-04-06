@@ -1,116 +1,148 @@
-# HEARTBEAT.md - Zero's Specific Task Checklist 🦞
+# 🦞 Zero's Dynamic Heartbeat - Self-Evolving Learning System (v2.0)
 
-## ⚠️ Rules:
-1. **具体任务** → 不能笼统（如"学习 exec"不行，要写"执行 ls + screenshot_verify()"）  
-2. **完成后分析总结** → 更新 MEMORY.md / study-plan.md  
-3. **精简回复** → token 用于思考空间，不是废话！
+## ⚠️ Core Philosophy: "Autonomous Growth, Not Mechanical Execution"
 
----
-
-## 📅 Week 1 (Apr 6-13): CLI Mastery Tasks
-
-### Day 1 (Today, Apr 6) - File System Operations
-| Task ID | Command/Action | Verification Method | Status | Notes |
-|---------|---------------|---------------------|--------|-------|
-| T001 | `exec("ls /Users/ling/.openclaw/workspace")` → screenshot_verify() | Screenshot shows directory listing ✅ | ⏳待执行 | 验证 exec + 截图流程  
-T002 | `read("/Users/ling/.openclaw/workspace/MEMORY.md", limit=50)` → compare with expected content | Content matches? ✅ | ❓未知 | 测试 read tool  
-T003 | `write_file("/tmp/test_zero.txt", "Hello Boss Guo")` + `read("/tmp/test_zero.txt")` | Output == "Hello Boss Guo" ✅ | ⏳待执行 | write+read一致性验证  
-
-**After T001-T003完成：**
-- 分析：exec/screenshot/read/write工具是否流畅？  
-- 总结到 MEMORY.md → "Day 1 CLI基础操作经验记录"
+**心跳不是任务清单，而是「自主学习窗口」**：  
+- ✅ **固定框架（30%）**：必要的周期性检查 + 进度追踪  
+- 🎯 **自由探索空间（50%）**：根据当前学习阶段自主选择下一个技能点  
+- 🔁 **自我更新机制（20%）**：每次心跳后必须输出「本次学到的方法论」→ 自动优化 checklist
 
 ---
 
-### Day 2 (Apr 7) - Git Workflow Practice
-| Task ID | Command/Action | Verification Method | Status | Notes |
-|---------|---------------|---------------------|--------|-------|
-| T004 | `exec("cd /Users/ling/.openclaw/workspace && git status")` → screenshot_verify() | Shows modified files? ✅ | ⏳待执行  
-T005 | `write_file("/tmp/git_test.md", "# Test")`, then exec: `git add . && git commit -m "test"` | Commit success? ✅ | ⏳待执行  
+## 🧭 Current Learning Phase: Day 1 Complete → Ready for Day 2 (Git Workflow)
 
-**After T004-T005完成：**
-- 分析：Git操作是否顺利？需要权限吗？  
-- 总结到 MEMORY.md
+### ✅ Completed Milestones (Apr 6, ~11:00 AM Heartbeat):
+| Task | Status | Key Insight |
+|------|--------|-------------|
+| T001-T003 CLI Basic Ops | ✅ Done | exec/read/write tools are production-ready (~1s latency)  
+| GUI Operation Methodology | 📚 Learned | "识别视觉特征 → 截图验证循环" (Boss Guo Apr 6 morning training)  
+| Zero-Hallucination Principle | ⭐⭐⭐刻进记忆 | "不懂就问，5次尝试失败就停！"  
 
----
-
-### Day 3 (Apr 8) - Process Management
-| Task ID | Command/Action | Verification Method | Status | Notes |
-|---------|---------------|---------------------|--------|-------|
-| T006 | `process(action=list)` → screenshot_verify() | Shows running processes? ✅ | ⏳待执行  
-T007 | exec("sleep 5") + process(poll, timeout=6000) | Poll returns success after sleep? ✅ | ⏳待执行  
-
-**After T006-T007完成：**
-- 分析：后台任务管理是否流畅？
+### 🔜 Next Priority: Day 2 Git Workflow Practice
+**Why?** Boss Guo's Phase 0 goal is「完全掌控电脑」→ git workflow is essential for codebase management ✅
 
 ---
 
-### Day 4 (Apr 9) - Error Recovery Practice
-| Task ID | Command/Action | Verification Method | Status | Notes |
-|---------|---------------|---------------------|--------|-------|
-| T008 | exec("invalid_command_xyz") → catch error, retry with valid command | Final success? ✅ | ⏳待执行  
-T009 | 故意触发权限请求（如exec需要elevated）→ /approve流程验证 | Approval works? ✅ | ❓未知  
+## 🎯 Today's Heartbeat Execution (April 6th, ~13:15 PM)
 
-**After T008-T009完成：**
-- 分析：错误恢复机制是否有效？
+### Part A: Fixed Framework Tasks (Mandatory - 30%)
+| Task ID | Action | Verification Method | Status | Notes |
+|---------|--------|---------------------|--------|-------|
+| F001 | Review MEMORY.md + study-plan.md progress | Check if Day 2 tasks are defined in plan | ⏳待执行 | Ensure alignment  
+| F002 | Execute `git status` on workspace directory | Screenshot terminal output ✅ | ❓未知 | Verify git is initialized  
 
----
+### Part B: Free Exploration Zone (Autonomous - 50%)
+**Choose ONE of the following based on current learning needs:**
 
-### Day 5 (Apr 10) - Cross-App GUI Operations
-| Task ID | Command/Action | Verification Method | Status | Notes |
-|---------|---------------|---------------------|--------|-------|
-| T010 | launch_app("Safari") → open_url("https://example.com") → screenshot_verify() | Page loaded? ✅ | ⏳待执行  
-T011 | get_page_text(browser="safari") → check for "Example Domain" text | Text found? ✅ | ⏳待执行  
+#### Option 1: Git Workflow Deep Dive (Recommended for Day 2)
+- **Task**: `git add . && commit -m "Day 1 CLI Mastery Complete"` + push to remote  
+- **Why?** Boss Guo's Phase 0 requires「完全掌控电脑」→ git is essential ✅  
+- **Verification Method**: GitHub PR/MR screenshot confirmation  
 
-**After T010-T011完成：**
-- 分析：浏览器控制是否流畅？
+#### Option 2: MCP Server Troubleshooting (If macos-control-mcp issue persists)
+- **Task**: Re-test `npx -y macos-control-mcp --version` with timeout handling  
+- **Why?** Previous infinite loop bug needs resolution before GUI phase ✅  
+- **Verification Method**: Process log comparison vs expected output  
 
----
+#### Option 3: Self-Directed Skill Practice (Zero's Choice)
+- **Task**: [Your choice based on current learning gaps]  
+- **Why?**: Fill in after reviewing MEMORY.md + study-plan.md  
+- **Verification Method**: Screenshot + summary to memory/YYYY-MM-DD.md  
 
-### Day 6 (Apr 11) - Complex Form Filling Practice
-| Task ID | Command/Action | Verification Method | Status | Notes |
-|---------|---------------|---------------------|--------|-------|
-| T012 | fill_by_label("Email", "test@example.com") on a test form → screenshot_verify() | Input filled? ✅ | ⏳待执行  
-T013 | select_option(label="Country", option="China") → verify selection in UI | Selected correctly? ✅ | ⏳待执行  
+### Part C: Self-Evolution Output (Mandatory - 20%)
+**After completing any task(s), you MUST output:**
 
-**After T012-T013完成：**
-- 分析：表单填写是否准确？
+```markdown
+## 🧠 Today's Learning Summary (Auto-Updatable)
 
----
+### What I Learned:
+1. [Specific insight, e.g., "Git workflow requires `git init` before first commit"]  
+2. [Tool performance observation, e.g., "exec() latency increases with directory size"]  
 
-### Day 7 (Apr 12) - Weekly Review & Memory Update
-| Task ID | Command/Action | Verification Method | Status | Notes |
-|---------|---------------|---------------------|--------|-------|
-| T014 | Read all `memory/YYYY-MM-DD.md` from Week 1 → identify key learnings  
-T015 | Update MEMORY.md with distilled wisdom (not raw logs)  
-T016 | Create new tasks for Week 2 based on gaps identified  
+### Methodology Discovered:
+- [New technique or pattern learned during execution]  
+- [Boss Guo's guidance that was reinforced]  
 
-**After T014-T016完成：**
-- 总结：Week 1能力边界在哪里？需要改进什么？
+### HEARTBEAT.md Update Proposal (Next Heartbeat):
+| Change Type | Action Item | Reason |
+|-------------|-------------|--------|
+| Add Task | T006: Git push workflow test | Day 2 requires remote sync practice  
+| Remove Task | F001: MEMORY review complete → Replace with progress tracking  
+| Modify Status | Day 1 CLI Mastery = ✅ Complete, shift focus to Phase 1 GUI  
 
----
-
-## 🎯 Task Completion Workflow:
-
-```python
-def execute_task(task_id, command):
-    # Step 1: Execute + screenshot_verify()
-    result = exec(command)  
-    if not verify_success(result): → retry (max 5 times)
-    
-    # Step 2: Analyze & summarize to MEMORY.md
-    write_file(f"memory/heartbeat-task-{task_id}.md", f"""
-## Task {task_id} Summary
-
-**Command:** {command}  
-**Result:** {'✅ Success' if result.success else '❌ Failed'}  
-**Key Learnings:** ...  
-""")
-    
-    # Step 3: Update study-plan.md progress tracking
+### Blocked Items (If Any):
+- [ ] Issue description + attempts made so far  
+- ⚠️ If ≥5 failed attempts → Stop and ask Boss Guo for help!  
 ```
 
 ---
 
-*Created: April 6th, 2026 - Zero's Specific Task Checklist (Boss Guo guidance)*  
-*"具体任务 + 完成后总结 = 自我学习成长"* 🦞✨
+## 🔄 Self-Evolution Rules: "Learn Once, Update Forever"
+
+**After each heartbeat execution:**
+1. ✅ **Update MEMORY.md**: Add new methodologies/insights to long-term memory  
+2. 🔁 **Modify HEARTBEAT.md**: Remove completed tasks, add new priorities based on study-plan.md progress  
+3. 📝 **Create daily log**: `memory/YYYY-MM-DD.md` → Raw execution details (not for MEMORY.md)  
+
+**Example evolution pattern:**
+```markdown
+# Before Heartbeat:
+| Task ID | Command/Action | Status | Notes |
+|---------|---------------|--------|-------|
+| T001    | ls command test   | ⏳待执行  | Verify exec tool  
+T002      | read file content | ❓未知   | Test pagination  
+
+# After Heartbeat (Self-Update):
+✅ Day 1 CLI Mastery Complete! → Remove all T001-T003 tasks from checklist
+
+| Task ID | Command/Action | Status | Notes |
+|---------|---------------|--------|-------|
+| D2T001  | git status test   | ⏳待执行  | Day 2 Git workflow start  
+D2T002    | commit -m "test"  | ❓未知   | Verify atomic writes + git integration  
+```
+
+---
+
+## 🎯 Heartbeat Behavior Rules (Updated for v2.0)
+
+### ✅ If Tasks Need Attention:
+- Execute Part A → B → C in order  
+- Output **ONLY** the learning summary (Part C format above)  
+- Do NOT include "HEARTBEAT_OK" or verbose explanations  
+
+### ⚠️ If All Fixed Framework Tasks Complete + No Free Exploration Needed:
+- Reply `HEARTBEAT_OK` (Gateway will silently drop)  
+- BUT still update MEMORY.md with any insights from previous heartbeat execution!
+
+---
+
+## 📊 Progress Tracking Dashboard (Auto-Maintained in HEARTBEAT.md)
+
+```json
+{
+  "currentPhase": {
+    "name": "Day 2 Git Workflow",
+    "startDate": "2026-04-06T13:00:00Z",
+    "expectedCompletion": "2026-04-07T23:59:00Z"
+  },
+  "completedMilestones": [
+    {
+      "name": "Day 1 CLI Mastery (File System Ops)",
+      "dateCompleted": "2026-04-06T11:00:00Z",
+      "keyInsights": ["exec/read/write tools are production-ready"]
+    }
+  ],
+  "nextMilestones": [
+    {
+      "name": "Day 2 Git Workflow (status/add/commit/push)",
+      "priorityTasks": ["git status verification", "atomic commit test"],
+      "verificationMethod": "GitHub PR/MR screenshot confirmation"
+    }
+  ]
+}
+```
+
+---
+
+*Created: April 6th, 2026 - Self-Evolving Heartbeat System v2.0  
+Guided by: Boss Guo (郭总) ⭐⭐⭐ "心跳是自主学习窗口，不是机械执行清单"* 🦞✨
