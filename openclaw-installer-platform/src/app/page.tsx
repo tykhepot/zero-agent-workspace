@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { 
-  Copy, CheckCircle2, Terminal, Zap, Shield, Star, Rocket, 
+  Copy, CheckCircle2, Terminal, Zap, Shield, Star, Rocket, ArrowRight,
 } from 'lucide-react';
 
 // Service data structure (sorted by price: low to high)
@@ -26,15 +26,13 @@ const services = [
     command: 'npx @openclaw/installer/free --share-site',
     ctaText: '复制命令 →',
     popular: false,
-    gradientFrom: '#0F1428',
-    gradientTo: '#1E3A5F',
   },
   {
     id: 'model-config',
-    name: '大模型一键配置',
-    IconComponent: Terminal, // Using Terminal as placeholder for Command icon
-    color: '#FF7D00', // accent orange (for model config)
-    badge: '按次付费 ¥9.9/次',
+    name: '大模型配置服务',
+    IconComponent: Terminal,
+    color: '#FF7D00', // accent orange
+    badge: '¥9.9/次',
     price: 9.9,
     description: '上传 openclaw.json · 修复/添加/删除大模型适配 LM Studio/OpenRouter/自定义接口',
     features: [
@@ -46,15 +44,13 @@ const services = [
     command: 'npx @openclaw/installer/model --config',
     ctaText: '立即配置 →',
     popular: false,
-    gradientFrom: '#0F1428',
-    gradientTo: '#3D2A1E',
   },
   {
     id: 'premium-setup',
     name: '配置优化服务',
     IconComponent: Zap,
     color: '#36CFC9', // secondary cyan
-    badge: '付费 ¥29.9/终身',
+    badge: '¥29.9/终身',
     price: 29.9,
     description: '含记忆系统插件部署 · 微信/飞书聊天对接基础参数调优一次付费终身使用',
     features: [
@@ -66,15 +62,13 @@ const services = [
     command: 'npx @openclaw/installer/premium --config',
     ctaText: '购买密钥 →',
     popular: true,
-    gradientFrom: '#1E2A47',
-    gradientTo: '#0F3D38',
   },
   {
     id: 'clean-uninstall',
     name: '干净卸载服务',
     IconComponent: Shield,
     color: '#EF4444', // red for uninstall (warning)
-    badge: '付费 ¥59.9/次',
+    badge: '¥59.9/次',
     price: 59.9,
     description: '完全清除所有文件缓存注册表无残留支持重装无冲突，适合反复安装失败用户',
     features: [
@@ -86,19 +80,17 @@ const services = [
     command: 'npx @openclaw/installer/uninstall --deep',
     ctaText: '购买卸载密钥 →',
     popular: false,
-    gradientFrom: '#2A1E1E',
-    gradientTo: '#470F0F',
   },
   {
     id: 'ultimate-bundle',
     name: '旗舰全配版 (终身)',
     IconComponent: Rocket,
     color: '#FFD700', // gold for flagship
-    badge: '🔥 终身权限 ¥99/终身',
+    badge: '¥99/终身',
     price: 99,
     description: '一键安装 + 全配置优化含记忆/微信/飞书/大模型全对接 · 终身无限次卸载重装机器绑定专属密钥仅本机可用',
     features: [
-      '🎁 包含所有服务功能 (免费 + 付费)',
+      '🎁 包含所有服务功能 (免费+付费)',
       '♾️ 终身免费无限次卸载/重新安装',
       '🔒 机器指纹绑定防止密钥共享',
       '⭐ VIP 优先技术支持通道'
@@ -106,8 +98,6 @@ const services = [
     command: 'npx @openclaw/installer/ultimate --lifetime',
     ctaText: '购买旗舰专属 →',
     popular: true,
-    gradientFrom: '#2A1E0F', // gold accent background
-    gradientTo: '#473D1E',
   },
 ];
 
@@ -115,7 +105,6 @@ const services = [
 const freeResources = [
   { id: 'commands', title: 'OpenClaw 命令大全 (中文详解)', IconComponent: Terminal, description: '按功能分类展示常用命令 · 基础/服务管理/模型配置/日志查看/插件安装...', color: '#165DFF' },
   { id: 'skills', title: '推荐 Skills 技能库 (开箱即用)', IconComponent: Star, description: '精选最佳实践的技能配置方案 · GitHub/GitHub Copilot/微信连接等热门集成 + 一键安装教程...', color: '#36CFC9' },
-  { id: 'models', title: '大模型推荐 (广告位)', IconComponent: Terminal, description: '高质量开源/闭源模型列表 · API Key 获取指南', color: '#FF7D00', adSlot: true }
 ];
 
 export default function Home() {
@@ -141,24 +130,24 @@ export default function Home() {
 
     } catch (err) {
       console.error('Copy failed:', err);
-      alert('⚠️ ⚠️ 复制失败，请手动选择并复制上面的代码块内容.');
+      alert('⚠️ 复制失败，请手动选择并复制上面的代码块内容.');
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0F1428] via-blue-950 to-black text-white">
+    <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-gray-100 text-[#1a1a2e]">
       
       {/* ============ Navigation Bar ============ */}
       <motion.nav 
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="fixed top-0 w-full z-50 bg-[#0F1428]/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300"
+        className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 transition-all duration-300"
       >
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
 
           {/* Logo */}
           <Link href="#" className="flex items-center space-x-2 group hover:opacity-90 transition-opacity">
-            <Terminal className="w-8 h-8 text-primary" />
+            <Terminal className="w-8 h-8 text-[#165DFF]" />
             <span className="text-xl font-bold tracking-tight">OpenClaw Installer</span>
 
           </Link>
@@ -170,33 +159,12 @@ export default function Home() {
               <a 
                 key={index}
                 href={`#${item === '首页' ? 'hero' : item === '服务中心' ? 'services' : 'free-resources'}`}
-                className="hover:text-primary transition-colors hover:underline decoration-primary underline-offset-4"
+                className="hover:text-[#165DFF] transition-colors hover:underline decoration-[#165DFF] underline-offset-4"
               >{item}</a>
 
             ))}
 
           </div>
-
-          {/* CTA Button */}
-          <button 
-            onClick={() => handleCopy('npx @openclaw/installer/free --share-site')}
-            className="bg-primary hover:bg-blue-600 text-white px-5 py-2 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-md flex items-center space-x-2"
-          >
-
-            {copiedCommand === 'main' ? (
-              <>
-                <CheckCircle2 className="w-4 h-4 text-green-500" />
-                <span>已复制!</span>
-              </>
-            ) : (
-              <>
-                <Copy className="w-4 h-4" />
-                <span>复制命令</span>
-
-              </>
-            )}
-
-          </button>
 
         </div>
 
@@ -204,10 +172,10 @@ export default function Home() {
 
 
       {/* ============ Hero Section ============ */}
-      <section id="hero" className="pt-36 pb-24 px-6 relative overflow-hidden">
+      <section id="hero" className="pt-32 pb-20 px-6 relative overflow-hidden">
 
         {/* Background decoration (subtle gradient) */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-10%,rgba(22,93,255,0.1),transparent_70%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-10%,rgba(22,93,255,0.08),transparent_70%)]"></div>
 
         <motion.div 
           initial={{ opacity: 0, y: 48 }}
@@ -221,28 +189,28 @@ export default function Home() {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.4 }}
-            className="inline-block px-6 py-2 bg-primary/20 border border-primary/30 rounded-full text-sm font-medium mb-8"
+            className="inline-block px-6 py-2 bg-[#165DFF]/10 border border-[#165DFF]/30 rounded-full text-sm font-medium mb-8"
           >
 
-            🚀 小白用户的一键安装神器 · 零基础也能玩转本地 AI
+            🚀 OpenClaw 小白用户的一键安装神器 · 零基础也能玩转本地 AI
             
           </motion.div>
 
 
           {/* Main Title */}
-          <h1 className="text-4xl md:text-6xl lg:text-[5rem] font-extrabold tracking-tight leading-tight mb-8">
+          <h1 className="text-[4rem] md:text-6xl lg:text-[5.5rem] font-extrabold tracking-tight leading-none mb-8">
 
-            OpenClaw 一站式安装平台<br />
-            <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">一键命令 · 自动修复所有问题</span>
+            OpenClaw<br />
+            <span className="bg-gradient-to-r from-[#165DFF] via-[#36CFC9] to-[#FF7D00] bg-clip-text text-transparent">一站式安装平台</span>
 
           </h1>
 
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed space-y-4">
+          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed space-y-4 font-light">
 
             分享网站即可免费获取安装密钥 · 自动检测环境问题 · 一次性解决所有安装坑点<br />
-            <strong className="text-white">Windows / macOS / Linux</strong>全系统支持，零基础也能轻松上手!
+            <span className="font-medium text-[#1a1a2e]">Windows / macOS / Linux</span>全系统支持，零基础也能轻松上手!
 
           </p>
 
@@ -257,23 +225,23 @@ export default function Home() {
 
             <div 
               onClick={() => handleCopy('npx @openclaw/installer/free --share-site')}
-              className="bg-[#0F1428] border border-gray-800 rounded-xl p-6 md:p-8 cursor-pointer hover:border-primary/50 transition-all duration-300 shadow-lg group relative"
+              className="bg-white border border-gray-200 rounded-xl p-8 cursor-pointer hover:border-[#165DFF]/30 transition-all duration-300 shadow-lg group relative"
             >
 
               {/* Copy Button (visible on hover) */}
               <button 
                 onClick={(e) => { e.stopPropagation(); handleCopy('npx @openclaw/installer/free --share-site'); }}
-                className="absolute top-4 right-4 bg-primary/20 hover:bg-primary text-white px-3 py-1.5 rounded-md text-xs font-medium transition-colors flex items-center space-x-1"
+                className="absolute top-6 right-6 bg-[#165DFF]/10 hover:bg-[#165DFF] text-[#165DFF] hover:text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center space-x-2"
               >
 
                 {copiedCommand === 'main' ? (
                   <>
-                    <CheckCircle2 className="w-3 h-3 text-green-400" />
+                    <CheckCircle2 className="w-4 h-4 text-green-500" />
                     <span>已复制!</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-3 h-3 opacity-70 group-hover:opacity-100 transition-opacity flex-shrink-0" />
+                    <Copy className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity flex-shrink-0" />
                     <span className="hidden md:inline">复制命令</span><span className="md:hidden">复制</span>
 
                   </>
@@ -283,15 +251,15 @@ export default function Home() {
 
 
               {/* Command Text */}
-              <code className="text-sm md:text-base font-mono text-primary block break-all leading-relaxed select-text">npx @openclaw/installer/free --share-site</code>
+              <code className="text-lg font-mono text-[#165DFF] block break-all leading-relaxed select-text bg-gray-50 p-4 rounded-lg border border-gray-200">npx @openclaw/installer/free --share-site</code>
 
             </div>
 
 
             {/* Helper Tips (free badge) */}
-            <p className="mt-4 text-gray-500 text-xs flex items-center justify-center space-x-2 bg-green-500/10 border border-green-500/30 px-4 py-2 rounded-full inline-block">
+            <p className="mt-6 text-sm text-gray-500 flex items-center justify-center space-x-3 bg-white/80 border border-gray-200 px-6 py-3 rounded-full inline-block shadow-sm">
 
-              <span className="bg-green-500/20 border border-green-500/40 px-2 py-0.5 rounded-full text-green-400 font-medium flex items-center space-x-1"><CheckCircle2 className="w-3 h-3" /><span>免费</span></span><span className="ml-2">分享网站即可获取密钥 · 每个密钥仅限使用一次 · 24 小时后过期</span>
+              <span className="bg-green-100 border border-green-300 px-3 py-1 rounded-full text-green-700 font-medium flex items-center space-x-1"><CheckCircle2 className="w-4 h-4" /><span>免费</span></span><span className="ml-2">分享网站即可获取密钥 · 每个密钥仅限使用一次 · 24 小时后过期</span>
 
             </p>
 
@@ -306,7 +274,7 @@ export default function Home() {
 
 
       {/* ============ Services Section (5 cards sorted by price) ============ */}
-      <section id="services" className="py-24 px-6 bg-[#0F1428]/50 border-t border-gray-800">
+      <section id="services" className="py-20 px-6 bg-white border-t border-gray-100">
 
         <div className="container mx-auto max-w-7xl">
 
@@ -319,16 +287,16 @@ export default function Home() {
             className="text-center mb-16"
           >
 
-            <h2 className="text-3xl md:text-[4rem] font-bold tracking-tight mb-4">🎯 核心服务 (从免费到旗舰)</h2>
+            <h2 className="text-[3rem] md:text-4xl font-bold tracking-tight mb-4 text-[#1a1a2e]">🎯 核心服务</h2>
             
             {/* Subtitle */}
-            <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed opacity-80">复制对应命令即可开始使用 · 所有服务均包含基础安装功能</p>
+            <p className="text-gray-500 max-w-xl mx-auto text-base leading-relaxed opacity-80">复制对应命令即可开始使用 · 所有服务均包含基础安装功能</p>
 
           </motion.div>
 
 
           {/* Services Grid (sorted by price: low to high) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
             {services.map((service, index) => {
               const Icon = service.IconComponent;
@@ -340,28 +308,28 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.15, duration: 0.6 }}
-                  className={`service-card relative bg-gradient-to-br ${service.gradientFrom} to-${service.gradientTo.replace('#', '')} border rounded-xl p-8 hover:border-primary/30 transition-all duration-300 group`}
+                  className="relative bg-white border-2 rounded-xl p-8 hover:border-[#165DFF]/30 transition-all duration-300 group shadow-sm hover:shadow-lg"
                 >
 
                   {/* Service Badge */}
                   <span 
                     style={{ backgroundColor: service.color }}
-                    className="absolute -top-2 left-4 px-3 py-1 text-white font-bold text-xs rounded-full shadow-md z-10"
+                    className="absolute -top-4 left-8 px-4 py-1.5 text-white font-bold text-xs rounded-full shadow-md z-10"
                   >{service.badge}</span>
 
 
                   {/* Icon + Title */}
                   <div className="flex items-center space-x-3 mb-6">
 
-                    <Icon className={`w-12 h-12 rounded-lg flex items-center justify-center text-xl group-hover:scale-110 transition-transform duration-300`} style={{ backgroundColor: `${service.color}20` }} />
+                    <Icon className={`w-12 h-12 rounded-lg flex items-center justify-center text-xl group-hover:scale-110 transition-transform duration-300`} style={{ backgroundColor: `${service.color}15` }} />
                     
-                    <h3 className="text-[4rem] font-bold tracking-tight">{service.name}</h3>
+                    <h3 className="text-[2rem] font-bold tracking-tight">{service.name}</h3>
 
                   </div>
 
 
                   {/* Description */}
-                  <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-grow space-y-1.5 opacity-90">
+                  <p className="text-gray-600 text-sm leading-relaxed mb-8 flex-grow space-y-1.5 opacity-90">
                     {service.description.split('\n').map((line, idx) => (
                       <span key={idx}>{line}<br /></span>
 
@@ -385,7 +353,7 @@ export default function Home() {
                   {/* Command Box (click to copy) */}
                   <button 
                     onClick={() => handleCopy(service.command, service.id)}
-                    className="w-full bg-gradient-to-r from-gray-800/50 hover:bg-primary border text-white py-4 rounded-lg font-mono text-xs transition-all duration-300 flex items-center justify-between group-hover:border-accent"
+                    className="w-full bg-gradient-to-r from-gray-100 hover:bg-[#165DFF] border text-white py-4 rounded-lg font-mono text-xs transition-all duration-300 flex items-center justify-between group-hover:border-[#165DFF]"
                   >
 
                     {/* Command */}
@@ -427,7 +395,7 @@ export default function Home() {
 
 
       {/* ============ Free Resources Section (simplified list view) ============ */}
-      <section id="free-resources" className="py-24 px-6 bg-[#0F1428]/30 border-t border-gray-800">
+      <section id="free-resources" className="py-20 px-6 bg-gradient-to-b from-white to-gray-50 border-t border-gray-100">
 
         <div className="container mx-auto max-w-5xl animate-fade-in-up">
 
@@ -451,7 +419,7 @@ export default function Home() {
                   key={index}
                   href="#"
                   onClick={(e) => e.preventDefault()} // Placeholder for now
-                  className={`block group hover:bg-gray-900/50 p-8 rounded-xl transition-all duration-300 border-l-[6px] cursor-pointer`}
+                  className={`block group hover:bg-white p-8 rounded-xl transition-all duration-300 border-l-[6px] cursor-pointer shadow-sm`}
                   style={{ borderColor: resource.color }}
                 >
 
@@ -461,14 +429,14 @@ export default function Home() {
                     <Icon className={`text-3xl group-hover:scale-110 transition-transform duration-300 inline-block`} style={{ color: resource.color }} />
                     
                     <h3 
-                      className={`text-[2rem] font-bold tracking-tight text-white group-hover:text-primary transition-colors`}
+                      className={`text-[2rem] font-bold tracking-tight text-gray-900 group-hover:text-[#165DFF] transition-colors`}
                     >{resource.title}</h3>
 
                   </div>
 
 
                   {/* Description */}
-                  <p className="text-gray-400 leading-relaxed ml-[5rem] max-w-lg opacity-90">{resource.description.split('\n').map((line, idx) => (idx > 0 ? ` ${line}` : line))}</p>
+                  <p className="text-gray-600 leading-relaxed ml-[5rem] max-w-lg opacity-90">{resource.description.split('\n').map((line, idx) => (idx > 0 ? ` ${line}` : line))}</p>
 
                 </a>
 
@@ -487,7 +455,7 @@ export default function Home() {
 
 
       {/* ============ Footer (simplified) ============ */}
-      <footer className="py-16 px-6 bg-[#0F1428] border-t border-gray-900">
+      <footer className="py-16 px-6 bg-white border-t border-gray-200">
 
         <motion.div 
           initial={{ opacity: 0, y: 24 }}
@@ -510,7 +478,7 @@ export default function Home() {
             {/* Contact Info */}
             <div className="space-y-2 text-gray-600 pt-4">
 
-              <a href="mailto:support@openclaw.com" className={`hover:text-primary transition-colors flex items-center space-x-1.5 group`}>📧 support<span className="group-hover:underline">@</span>openclaw.com</a><p className="flex items-center space-x-2 text-gray-600"><span>💬 快捷咨询:</span><button onClick={() => handleCopy('npx @openclaw/installer/free --share-site')} className={`text-primary hover:underline transition-colors`}>复制命令即可开始使用!</button></p>
+              <a href="mailto:support@openclaw.com" className={`hover:text-[#165DFF] transition-colors flex items-center space-x-1.5 group`}>📧 support<span className="group-hover:underline">@</span>openclaw.com</a><p className="flex items-center space-x-2 text-gray-600"><span>💬 快捷咨询:</span><button onClick={() => handleCopy('npx @openclaw/installer/free --share-site')} className={`text-[#165DFF] hover:underline transition-colors`}>复制命令即可开始使用!</button></p>
 
             </div>
 
@@ -531,7 +499,7 @@ export default function Home() {
                 key={index}
                 href={`#${item === '服务中心' ? 'services' : item === '免费干货' ? 'free-resources' : ''}`}
                 onClick={(e) => e.preventDefault()} // Placeholder for now
-                className="block hover:text-white transition-colors group flex items-center space-x-1.5"
+                className="block hover:text-[#165DFF] transition-colors group flex items-center space-x-1.5"
               >
 
                 {item}<span className={`opacity-0 group-hover:opacity-100 ml-[2rem] text-xs`}>复制命令</span>
@@ -540,23 +508,6 @@ export default function Home() {
 
 
             ))}
-
-
-          </div>
-
-
-          {/* Right: Ad Slot */}
-          <div className="space-y-3 text-gray-600">
-
-            <h4 className={`font-bold mb-[2rem] flex items-center space-x-1.5`}><span style={{ color: '#FF7D00' }}>📢</span><span>合作招商</span></h4>
-
-
-            {/* Ad Placeholder */}
-            <div className="bg-gray-900 border border-gray-800 rounded-lg p-[2rem] text-xs leading-relaxed space-y-3 cursor-not-allowed opacity-75">
-
-              📢 第三方接口合作招商<br />请联系 ads@openclaw.com<div className={`h-16 bg-white/20 border border-dashed border-gray-700 rounded flex items-center justify-center text-[10px] mt-3 italic`}>[广告位预留]</div>
-
-            </div>
 
 
           </div>
